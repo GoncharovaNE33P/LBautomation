@@ -73,7 +73,8 @@ namespace LBautomation
             CheckNumberItem(NumberItem);
 
             int CountNumbers = ReadInteger("Введите количество чисел с которыми хотите провести операции: ");
-            if (CountNumbers > 2 && (NumberItem == 5 || NumberItem == 7 || NumberItem == 8)) { Console.WriteLine($"Вычисление невозможно с больше двух чисел."); return; }
+            if ((CountNumbers < 2 || CountNumbers > 2) && (NumberItem == 5 || NumberItem == 7 || NumberItem == 8)) { Console.WriteLine($"Вычисление невозможно с больше/меньше двух чисел."); return; }
+            if (CountNumbers < 1 && (NumberItem != 5 || NumberItem != 7 || NumberItem != 8)) { Console.WriteLine($"Вычисление невозможно с меньше одного чисела."); return; }
             List<double> ListNumbers = new List<double>(CountNumbers);
             for (int i = 0; i < CountNumbers; i++)
             {
